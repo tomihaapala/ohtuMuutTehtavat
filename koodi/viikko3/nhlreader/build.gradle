@@ -1,1 +1,12 @@
-rootProject.name = 'nhlreader'
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'ohtu.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ohtu.Main'
+    }
+}
