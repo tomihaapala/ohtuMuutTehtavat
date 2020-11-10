@@ -3,11 +3,14 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'ohtu.Main'
+application {
+    mainClass = 'ohtu.Main'
+}
 
 repositories {
     jcenter()
 }
+
 project.ext {
     cucumberVersion = '6.8.1'
     junitVersion = '4.13'

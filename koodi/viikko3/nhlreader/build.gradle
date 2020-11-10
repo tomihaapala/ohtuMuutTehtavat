@@ -3,8 +3,9 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'ohtu.Main'
-
+application {
+    mainClass = 'ohtu.Main'
+}
 jar {
     manifest {
         attributes 'Main-Class': 'ohtu.Main'

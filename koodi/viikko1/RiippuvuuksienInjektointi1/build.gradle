@@ -11,7 +11,9 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
 }
 
-mainClassName = 'ohtu.Main'
+application {
+    mainClass = 'ohtu.Main'
+}
 
 run{
     standardInput = System.in

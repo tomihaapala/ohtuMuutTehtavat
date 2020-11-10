@@ -16,7 +16,9 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-beans', version: springVersion
 }
 
-mainClassName = 'ohtu.Main'
+application {
+    mainClass = 'ohtu.Main'
+}
 
 run {
     standardInput = System.in

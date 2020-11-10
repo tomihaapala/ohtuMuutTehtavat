@@ -11,7 +11,9 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
 }
 
-mainClassName = 'ohtuesimerkki.Main'
+application {
+    mainClass = 'ohtuesimerkki.Main'
+}
 
 run{
     standardInput = System.in

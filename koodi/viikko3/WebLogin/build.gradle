@@ -43,5 +43,7 @@ test {
     systemProperties System.getProperties()
 }
 
-mainClassName = 'ohtu.Main'
+application {
+    mainClass = 'ohtu.Main'
+}
 
