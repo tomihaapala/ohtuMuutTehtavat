@@ -7,10 +7,7 @@ application {
     mainClass = 'ohtu.Main'
 }
 
-repositories {
-    jc
-    enter()
-}
+
 project.ext {
     cucumberVersion = '6.8.1'
     junitVersion = '4.13'
