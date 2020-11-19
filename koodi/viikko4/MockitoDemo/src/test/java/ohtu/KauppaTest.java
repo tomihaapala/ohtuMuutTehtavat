@@ -119,10 +119,10 @@ public class KauppaTest {
         Viitegeneraattori mockViite = mock(Viitegeneraattori.class);
         // määritellään että metodi palauttaa ensimmäisellä kutsukerralla 1, toisella 2 
         // ja kolmannella 3
-        when(mockViite.seruaava()).
-                thenReturn(1).
-                thenReturn(2).
-                thenReturn(3);
+        when(mockViite.seruaava())
+            .thenReturn(1)
+            .thenReturn(2)
+            .thenReturn(3);
 
         kauppa = new Kauppa(mockPankki, mockViite);
 
