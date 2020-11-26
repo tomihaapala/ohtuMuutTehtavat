@@ -1,3 +1,3 @@
 # syksy2020 
 
-laskareissa käytetty koodi
+laskareissa käytettävä koodi
