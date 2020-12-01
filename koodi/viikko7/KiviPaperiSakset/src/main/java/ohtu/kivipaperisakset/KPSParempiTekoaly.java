@@ -14,7 +14,7 @@ public class KPSParempiTekoaly {
         Tuomari tuomari = new Tuomari();
         TekoalyParannettu tekoaly = new TekoalyParannettu(20);
 
-        System.out.print("Ensimmäisen pelaajan siirto: ");
+        System.out.println("Ensimmäisen pelaajan siirto: ");
         String ekanSiirto = scanner.nextLine();
         String tokanSiirto;
 
@@ -28,7 +28,7 @@ public class KPSParempiTekoaly {
             System.out.println(tuomari);
             System.out.println();
 
-            System.out.print("Ensimmäisen pelaajan siirto: ");
+            System.out.println("Ensimmäisen pelaajan siirto: ");
             ekanSiirto = scanner.nextLine();
 
             tokanSiirto = tekoaly.annaSiirto();

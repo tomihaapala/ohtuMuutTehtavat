@@ -10,7 +10,7 @@ public class KPSTekoaly {
         Tuomari tuomari = new Tuomari();
         Tekoaly tekoaly = new Tekoaly();
 
-        System.out.print("Ensimmäisen pelaajan siirto: ");
+        System.out.println("Ensimmäisen pelaajan siirto: ");
         String ekanSiirto = scanner.nextLine();
         String tokanSiirto;
 
@@ -23,7 +23,7 @@ public class KPSTekoaly {
             System.out.println(tuomari);
             System.out.println();
 
-            System.out.print("Ensimmäisen pelaajan siirto: ");
+            System.out.println("Ensimmäisen pelaajan siirto: ");
             ekanSiirto = scanner.nextLine();
 
             tokanSiirto = tekoaly.annaSiirto();
