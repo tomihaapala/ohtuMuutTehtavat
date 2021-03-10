@@ -5,16 +5,22 @@
  */
 package ohtu.verkkokauppa.rajapinnat;
 
+import ohtu.verkkokauppa.Tuote;
+
 /**
  *
  * @author Tomi
  */
-public interface IO {
-
-    void aloitaAsiointi();
-    void poistaKorista(int id);
-    void lisaaKoriin(int id);
-    boolean tilimaksu(String nimi, String tilinumero);
+public interface VarastoIO {
     
+  
+
+    public Tuote haeTuote(int id);
+
+    public void palautaVarastoon(Tuote t);
+
+    public int saldo(int id);
+
+    public void otaVarastosta(Tuote t);
     
 }

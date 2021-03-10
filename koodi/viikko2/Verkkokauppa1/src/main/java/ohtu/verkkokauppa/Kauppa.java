@@ -1,31 +1,46 @@
 package ohtu.verkkokauppa;
 
-import ohtu.verkkokauppa.rajapinnat.IO;
+
+import ohtu.verkkokauppa.rajapinnat.PankkiIO;
+import ohtu.verkkokauppa.rajapinnat.VarastoIO;
+import ohtu.verkkokauppa.rajapinnat.ViitegeneraattoriIO;
 
 public class Kauppa {
 
-    private IO io;
-    
-    public Kauppa(IO io) {   
-        this.io = io;
+    private VarastoIO vio;
+    private PankkiIO pio;
+    private ViitegeneraattoriIO vgio;
+    private Ostoskori ostoskori;
+    String kaupanTili = "33333-44455";
+
+    public Kauppa(Varasto instance, Pankki instance0, Viitegeneraattori instance1) {
+        this.pio = instance0;
+        this.vgio = instance1;
+        this.vio =  instance;
     }
 
     public void aloitaAsiointi() {
-        io.aloitaAsiointi();
+        ostoskori = new Ostoskori();
     }
 
     public void poistaKorista(int id) {
-       io.poistaKorista(id);
+        Tuote t = vio.haeTuote(id);
+        vio.palautaVarastoon(t);
     }
 
     public void lisaaKoriin(int id) {
-       io.lisaaKoriin(id);
+        if (vio.saldo(id) > 0) {
+            Tuote t = vio.haeTuote(id);
+            ostoskori.lisaa(t);
+            vio.otaVarastosta(t);
         }
-    
+    }
 
     public boolean tilimaksu(String nimi, String tiliNumero) {
-        return io.tilimaksu(nimi, tiliNumero);
+        int viite = vgio.uusi();
+        int summa = ostoskori.hinta();
 
+        return pio.tilisiirto(nimi, viite, tiliNumero, kaupanTili, summa);
     }
 
 }

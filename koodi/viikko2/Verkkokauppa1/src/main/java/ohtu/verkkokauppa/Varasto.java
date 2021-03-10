@@ -1,24 +1,17 @@
 package ohtu.verkkokauppa;
 
 import java.util.*;
+import ohtu.verkkokauppa.rajapinnat.KirjanpitoIO;
+import ohtu.verkkokauppa.rajapinnat.VarastoIO;
 
-public class Varasto {
+public class Varasto implements VarastoIO{
 
-    private static Varasto instanssi;
-
-    public static Varasto getInstance() {
-        if (instanssi == null) {
-            instanssi = new Varasto();
-        }
-
-        return instanssi;
-    }
-    
-    private Kirjanpito kirjanpito;
+ 
+    private KirjanpitoIO kio;
     private HashMap<Tuote, Integer> saldot;  
     
-    public Varasto() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Varasto(Kirjanpito kirjanpito) {
+        this.kio = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();
         alustaTuotteet();
     }
@@ -37,12 +30,12 @@ public class Varasto {
     
     public void otaVarastosta(Tuote t){        
         saldot.put(t,  saldo(t.getId())-1 );
-        kirjanpito.lisaaTapahtuma("otettiin varastosta "+t);
+        kio.lisaaTapahtuma("otettiin varastosta "+t);
     }
     
     public void palautaVarastoon(Tuote t){
         saldot.put(t,  saldo(t.getId())+1 );
-        kirjanpito.lisaaTapahtuma("palautettiin varastoon "+t);
+        kio.lisaaTapahtuma("palautettiin varastoon "+t);
     }    
     
     private void alustaTuotteet() {
@@ -52,4 +45,6 @@ public class Varasto {
         saldot.put(new Tuote(4, "Mikkeller not just another Wit", 7), 40);
         saldot.put(new Tuote(5, "Weihenstephaner Hefeweisse", 4), 15);
     }
+
+
 }

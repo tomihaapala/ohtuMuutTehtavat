@@ -1,6 +1,8 @@
 package ohtu.verkkokauppa;
 
-public class Viitegeneraattori {
+import ohtu.verkkokauppa.rajapinnat.ViitegeneraattoriIO;
+
+public class Viitegeneraattori implements ViitegeneraattoriIO{
 
     private static Viitegeneraattori instanssi;
 
