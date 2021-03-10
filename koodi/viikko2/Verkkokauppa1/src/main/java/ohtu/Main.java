@@ -1,14 +1,16 @@
 package ohtu;
 
 import ohtu.verkkokauppa.*;
+import ohtu.verkkokauppa.rajapinnat.KauppaRajapinta;
 
 public class Main {
 
     public static void main(String[] args) {
-        Kauppa kauppa = new Kauppa();
+        Kauppa kauppa = new Kauppa(new KauppaRajapinta());
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
         kauppa.aloitaAsiointi();
+
         kauppa.lisaaKoriin(1);
         kauppa.lisaaKoriin(3);
         kauppa.lisaaKoriin(3);
@@ -27,5 +29,6 @@ public class Main {
         for (String tapahtuma : Kirjanpito.getInstance().getTapahtumat()) {
             System.out.println(tapahtuma);
         }
+
     }
 }
