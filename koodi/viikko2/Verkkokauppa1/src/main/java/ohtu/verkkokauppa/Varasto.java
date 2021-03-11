@@ -3,7 +3,9 @@ package ohtu.verkkokauppa;
 import java.util.*;
 import ohtu.verkkokauppa.rajapinnat.KirjanpitoIO;
 import ohtu.verkkokauppa.rajapinnat.VarastoIO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Varasto implements VarastoIO{
 
  

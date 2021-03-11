@@ -2,7 +2,9 @@ package ohtu.verkkokauppa;
 
 import ohtu.verkkokauppa.rajapinnat.KirjanpitoIO;
 import ohtu.verkkokauppa.rajapinnat.PankkiIO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Pankki implements PankkiIO{
 
 

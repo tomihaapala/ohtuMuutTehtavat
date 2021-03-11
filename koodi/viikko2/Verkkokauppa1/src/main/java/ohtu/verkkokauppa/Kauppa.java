@@ -4,7 +4,10 @@ package ohtu.verkkokauppa;
 import ohtu.verkkokauppa.rajapinnat.PankkiIO;
 import ohtu.verkkokauppa.rajapinnat.VarastoIO;
 import ohtu.verkkokauppa.rajapinnat.ViitegeneraattoriIO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Kauppa {
 
     private VarastoIO vio;
@@ -12,7 +15,8 @@ public class Kauppa {
     private ViitegeneraattoriIO vgio;
     private Ostoskori ostoskori;
     String kaupanTili = "33333-44455";
-
+    
+    @Autowired
     public Kauppa(Varasto instance, Pankki instance0, Viitegeneraattori instance1) {
         this.pio = instance0;
         this.vgio = instance1;
