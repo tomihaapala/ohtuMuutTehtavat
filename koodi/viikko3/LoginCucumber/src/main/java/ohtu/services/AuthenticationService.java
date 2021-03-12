@@ -39,8 +39,48 @@ public class AuthenticationService {
     }
 
     private boolean invalid(String username, String password) {
-        // validity check of username and password
+        
+            //On jo käytössä
+        if (userDao.findByName(username.toLowerCase()) != null) {
+          //  System.out.println("On jo käytössä");
+            return true;
+            
+            //Käyttäjätunnuksen pituus alle 3
+        } else if (username.length() < 3) {
+            //System.out.println("Pituus ei hyvä");
+            return true;
+            
+            //Käyttäjätunnus sisältää muita kuin kirjaimia a-z
+        } else if (!validateString(username)) {
+            //System.out.println("Muita kuin kirjaimia");
+            
+            return true;
 
-        return false;
+        } else if (password.length() < 8) {
+
+            return true;
+
+        } else if (validateString(password)) {
+
+            return true;
+
+        } else {
+
+            return false;
+        }
+            
+    }  
+                
+
+    public boolean validateString(String str) {
+        str = str.toLowerCase();
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (!(ch >= 'a' && ch <= 'z')) {
+                return false;
+            }
+        }
+        return true;
     }
 }
