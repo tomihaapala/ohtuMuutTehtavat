@@ -56,7 +56,7 @@ public class KauppaTest {
 
         kauppa = new Kauppa(varasto, pankki, viitegeneraattori);
     }
-
+/*
     @Test
     public void ostoksenPaaytyttyaPankinMetodiaTilisiirtoKutsutaan() {
 
@@ -127,4 +127,14 @@ public class KauppaTest {
         kauppa.tilimaksu("pekka", "12345");
         verify(viitegeneraattori, times(2)).uusi();
     }
+    
+        public void lisaaJaPoista() {
+        kauppa.aloitaAsiointi();
+        kauppa.lisaaKoriin(1);
+        kauppa.poistaKorista(1);
+        kauppa.tilimaksu("pekka", "12345");
+        verify(pankki).tilisiirto("pekka", 42, "12345", "33333-44455", 0);         
+    }
+*/
 }
+
