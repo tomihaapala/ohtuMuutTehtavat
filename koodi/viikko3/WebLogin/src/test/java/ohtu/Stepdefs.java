@@ -54,6 +54,12 @@ public class Stepdefs {
         assertTrue(driver.getPageSource().contains(pageContent));
     }
     
+    @When("incorrect username {string} and incorrect password {string} are given")
+    public void incorrectUsernameAndIncorrectPasswordAreGiven(String username, String password) {
+        logInWith(username, password);
+    } 
+
+   
     @After
     public void tearDown(){
         driver.quit();
