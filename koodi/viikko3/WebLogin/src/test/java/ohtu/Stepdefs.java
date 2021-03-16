@@ -13,8 +13,8 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class Stepdefs {
 
-    //WebDriver driver = new ChromeDriver();
-    WebDriver driver = new HtmlUnitDriver();
+    WebDriver driver = new ChromeDriver();
+   //WebDriver driver = new HtmlUnitDriver();
     String baseUrl = "http://localhost:4567";
 
     @Given("login is selected")
@@ -52,6 +52,7 @@ public class Stepdefs {
 
     @Then("system will respond {string}")
     public void systemWillRespond(String pageContent) throws Throwable {
+    
         assertTrue(driver.getPageSource().contains(pageContent));
     }
 
@@ -70,24 +71,27 @@ public class Stepdefs {
     public void validUsernameIsGiven(String username, String password) {
         logInWith(username, password);
     }
+   
     
     @Then("a new user is created")
     public void newUserIsCreated(){
-        pageHasContent("Welcome to Ohtu Application!");
-        
+       // try{ Thread.sleep(120000); } catch(Exception e){} 
+        pageHasContent("Ohtu Application main page");
+    
     }
-/*
+
     @When("a invalid username {string} and password {string} and matching password confirmation are entered")
-    public void invalidUsernameIsGiven(String username, String password) {
-        logInWith(username, password);
+    public void invalidUsernameIsGiven(String username, String password, String password2) {
+        
+        addNewUser(username, password, password2);
     }
     
-    @Then("user is not created and error {string} is reported ")
+    @Then("user is not created and error {string} is reported")
     public void systemWillRespondTooShortUsername(String pageContent) throws Throwable {
-        assertTrue(driver.getPageSource().contains(pageContent));
+        pageHasContent(pageContent);
     
     }
-*/
+
     @After
     public void tearDown() {
         driver.quit();
@@ -105,6 +109,18 @@ public class Stepdefs {
         element = driver.findElement(By.name("password"));
         element.sendKeys(password);
         element = driver.findElement(By.name("login"));
+        element.submit();
+    }
+        private void addNewUser(String username, String password, String confirmation) {
+        
+        assertTrue(driver.getPageSource().contains("Create username and give password"));
+        WebElement element = driver.findElement(By.name("username"));
+        element.sendKeys(username);                
+        element = driver.findElement(By.name("password"));
+        element.sendKeys(password);
+        element = driver.findElement(By.name("passwordConfirmation"));
+        element.sendKeys(confirmation);        
+        element = driver.findElement(By.name("signup"));        
         element.submit();
     }
 }

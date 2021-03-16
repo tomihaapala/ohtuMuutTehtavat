@@ -18,6 +18,7 @@ public class ServerRule extends ExternalResource {
         Spark.port(port);
         UserDao dao = new UserDaoForTests();
         dao.add(new User("jukka", "akkuj"));
+      //  dao.add(new User("ju", "akkuj"));
         Main.setDao(dao);
         Main.main(null);
     }
