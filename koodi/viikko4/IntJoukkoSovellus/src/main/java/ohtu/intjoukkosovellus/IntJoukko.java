@@ -148,10 +148,13 @@ public class IntJoukko {
         String tulos = "{";
         for (int i = 0; i < alkioidenLkm; i++) {
             tulos += ljono[i];
+            
             if (i < alkioidenLkm - 1) {
                 tulos += ", ";
+                
             }
         }
+        
         return tulos + "}";
     }
 
