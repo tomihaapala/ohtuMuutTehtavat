@@ -19,21 +19,26 @@ public abstract class Komento {
     protected Button nollaa;
     protected Button undo;
     protected Sovelluslogiikka sovellus;
+    
+    public int edellinenTulos;
+    public int[] molemmatTulokset = new int[2];
 
-
+    
     public Komento(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
         this.tuloskentta = tuloskentta;
         this.syotekentta = syotekentta;
         this.nollaa = nollaa;
         this.undo = undo;
-        this.sovellus = sovellus;  
+        this.sovellus = sovellus;
 
     }
 
     public abstract void suorita();
 
-    public abstract void peru();
+    public void peru() {
+      
+        tuloskentta.setText(String.valueOf(molemmatTulokset[1]));
+    }
 
-    
 
 }
