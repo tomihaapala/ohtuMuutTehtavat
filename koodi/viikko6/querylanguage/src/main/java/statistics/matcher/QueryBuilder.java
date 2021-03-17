@@ -22,12 +22,20 @@ public class QueryBuilder {
     }
 
     public QueryBuilder playsIn(String team) {
-        this.matchers = new And(new PlaysIn(team));
+        this.matchers = new And(new PlaysIn(team),this.matchers);
         return this;
     }
 
     public QueryBuilder hasAtLeast(int luku, String mita) {
-        this.matchers = new And(new HasAtLeast(luku, mita));
+        this.matchers = new And(new HasAtLeast(luku, mita),this.matchers);
+        return this;
+    }
+        public QueryBuilder hasFewerThan(int luku, String mita) {
+        this.matchers = new And(new HasFewerThan(luku, mita), this.matchers);
+        return this;
+    }
+        public QueryBuilder oneOf(Matcher ...matcherss) {
+        this.matchers = new Or(matcherss);
         return this;
     }
 }
