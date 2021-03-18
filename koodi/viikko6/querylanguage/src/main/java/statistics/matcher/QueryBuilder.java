@@ -12,9 +12,11 @@ package statistics.matcher;
 public class QueryBuilder {
 
     Matcher matchers;
+    Matcher[] matcherss;
 
     public QueryBuilder() {
         matchers = new All();
+        
     }
 
     public Matcher build() {
@@ -23,6 +25,7 @@ public class QueryBuilder {
 
     public QueryBuilder playsIn(String team) {
         this.matchers = new And(new PlaysIn(team),this.matchers);
+        
         return this;
     }
 

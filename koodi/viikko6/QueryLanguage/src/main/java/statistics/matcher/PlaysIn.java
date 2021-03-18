@@ -13,6 +13,7 @@ public class PlaysIn implements Matcher {
     @Override
     public boolean matches(Player p) {
         return p.getTeam().contains(team);
+        
     }
     
 }

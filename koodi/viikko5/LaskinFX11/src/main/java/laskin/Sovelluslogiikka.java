@@ -7,6 +7,10 @@ public class Sovelluslogiikka {
     public void plus(int luku) {
         tulos += luku;
     }
+    
+    public void setTulos(int uusiTulos){
+        this.tulos = uusiTulos;
+    }
      
     public void miinus(int luku) {
         tulos -= luku;

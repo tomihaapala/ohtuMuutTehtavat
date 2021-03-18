@@ -77,14 +77,13 @@ public class IntJoukko {
         }
         return false;
     }
-
-    private void kasvataTaulukonKokoa() {
+        private void kasvataTaulukonKokoa() {
         int[] taulukkoOld = new int[ljono.length];
-        taulukkoOld = ljono;
-        kopioiTaulukko(ljono, taulukkoOld);
-        ljono = new int[alkioidenLkm + kasvatuskoko];
-        kopioiTaulukko(taulukkoOld, ljono);
-
+                taulukkoOld = ljono;
+                kopioiTaulukko(ljono, taulukkoOld);
+                ljono = new int[alkioidenLkm + kasvatuskoko];
+                kopioiTaulukko(taulukkoOld, ljono);
+        
     }
 
     public boolean kuuluukoLukuTaulukkoon(int luku) {
@@ -148,13 +147,10 @@ public class IntJoukko {
         String tulos = "{";
         for (int i = 0; i < alkioidenLkm; i++) {
             tulos += ljono[i];
-            
             if (i < alkioidenLkm - 1) {
                 tulos += ", ";
-                
             }
         }
-        
         return tulos + "}";
     }
 
