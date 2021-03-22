@@ -11,16 +11,25 @@ public class Paaohjelma {
 
         while (true) {
             System.out.println("\nValitse pelataanko"
-                    + "\n (a) ihmistä vastaan "
-                    + "\n (b) tekoälyä vastaan"
-                    + "\n (c) parannettua tekoälyä vastaan"
+                    + "\n (a) ihmistÃ¤ vastaan "
+                    + "\n (b) tekoÃ¤lyÃ¤ vastaan"
+                    + "\n (c) parannettua tekoÃ¤lyÃ¤ vastaan"
                     + "\nmuilla valinnoilla lopetataan");
 
             String vastaus = scanner.nextLine();
-             if (vastaus.endsWith("a")) {
+            if (vastaus.equals("a")) {
                 uusiPeli = KiviPaperiSakset.luoUusiPelaajaVsPelaaja();
             }
-             uusiPeli.pelaa();
+            if (vastaus.endsWith("b")) {
+                uusiPeli = KiviPaperiSakset.luoUusiPelaajaVsTekoaly();
+
+            }
+            if (vastaus.endsWith("c")) {
+                uusiPeli = KiviPaperiSakset.luoUusiPelaajaVsVahvaTekoaly();
+
+            }
+
+            uusiPeli.pelaa();
         }
 
     }
