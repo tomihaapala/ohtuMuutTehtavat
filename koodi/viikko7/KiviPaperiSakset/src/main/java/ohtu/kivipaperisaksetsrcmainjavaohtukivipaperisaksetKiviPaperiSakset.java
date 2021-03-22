@@ -19,7 +19,7 @@ public abstract class KiviPaperiSakset {
     }
     
     
-    // t‰m‰ on ns template metodi
+    // t√§m√§ on ns template metodi
     public void pelaa() {
         Tuomari tuomari = new Tuomari() ;
         
@@ -34,7 +34,7 @@ public abstract class KiviPaperiSakset {
             System.out.println(tuomari);
             System.out.println();
 
-            System.out.println("Ensimm‰isen pelaajan siirto: ");
+            System.out.println("Ensimm√§isen pelaajan siirto: ");
             ekanSiirto = scanner.nextLine();
             
             System.out.println("Toisen pelaajan siirto: ");
@@ -49,11 +49,11 @@ public abstract class KiviPaperiSakset {
     }
     
     protected String ensimmaisenSiirto() {
-        System.out.print("Ensimm‰isen pelaajan siirto: ");
+        System.out.print("Ensimm√§isen pelaajan siirto: ");
         return scanner.nextLine();
     }
 
-    // t‰m‰ on abstrakti metodi sill‰ sen toteutus vaihtelee eri pelityypeiss‰
+    // t√§m√§ on abstrakti metodi sill√§ sen toteutus vaihtelee eri pelityypeiss√§
     abstract protected String toisenSiirto();
     
     protected static boolean onkoOkSiirto(String siirto) {
