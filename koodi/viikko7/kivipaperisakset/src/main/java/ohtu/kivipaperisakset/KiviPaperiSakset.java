@@ -21,9 +21,10 @@ public abstract class KiviPaperiSakset {
     
     // tämä on ns template metodi
     public void pelaa() {
-        Tuomari tuomari = new Tuomari();
+        Tuomari tuomari = new Tuomari() ;
         
-        String ekanSiirto = ensimmaisenSiirto();
+        String ekanSiirto = scanner.nextLine();
+        
         
         System.out.print("Toisen pelaajan siirto: ");
         String tokanSiirto = toisenSiirto();
